@@ -18,7 +18,7 @@ section {
     display: flex;
     justify-content: space-between;
     background-image: url("https://i.ytimg.com/vi/Xi_34zShX2M/maxresdefault.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
     transition: 0.5s;
