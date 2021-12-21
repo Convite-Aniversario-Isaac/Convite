@@ -40,8 +40,9 @@ body {
     transform: translateX(-50%);
     height: 250px;
     transition: 0.5s;
-    left: 100%;
+    left: 80%;
     height: 350px;
+    z-index: 1
 }
 
 .card .content {
@@ -113,8 +114,8 @@ body {
 .card2 {
     position: relative;
     width: 600px;
-    height: 350px;
-    margin: 20px 100px;
+    height: 400px;
+    margin: 20px 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -132,8 +133,8 @@ body {
 }
 
 .card2:hover img {
-    left: 80%;
-    height: 450px;
+    left: 70%;
+    height: 350px;
 }
 
 .card2 .content2 {
