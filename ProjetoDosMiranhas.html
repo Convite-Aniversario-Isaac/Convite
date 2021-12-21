@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Pepsi Website Landing Page</title>
+    <link rel="stylesheet" href="/Css/ProjetoDosMiranhas.css">
+</head>
+
+<body>
+
+    <section class="sec">
+        <header>
+
+            <a href="#"><img src="/img/1.png" class="logo"></a>
+            <div class="toggleMenu" onclick="toggleMenu()"></div>
+            <ul class="navigation">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Novidades</a></li>
+                <li><a href="#">Boletim de Notícias</a></li>
+                <li><a href="#">Contatos</a></li>
+            </ul>
+
+        </header>
+
+        <div class="content">
+            <div id="textBox">
+                <h2><span>Tobey Maguire</span></h2>
+                <p>O jovem Peter Parker é orfão de pai e mãe,tendo sido criado pela querida Tia May e pelo Tio Ben.Na escola é um excelente aluno embora sofra chacotas por parte de valentões.Seu melhor amigo é Harry Osborn,filho do cientista magnata Norman
+                    Osborn.Sente-se atraido por sua vizinha e colega Mary Jane que namora o valentão Flash Tompson,um dos que costumam-no humilhar.
+                </p>
+                <a href="/Heros.html">Ver Mais Detalhes</a>
+            </div>
+
+            <div class="imgBox">
+                <img src="/img/Spider-Man__Toby_Maguire_-removebg-preview (2).png" class="pepsi">
+            </div>
+
+        </div>
+
+        <ul class="thumb">
+            <li><img src="/img/Spider-Man__Toby_Maguire_-removebg-preview (2).png" onclick="imgSlider('/img/Spider-Man__Toby_Maguire_-removebg-preview (2).png'); changeBgColor('/img/1.png'); changeBgColor1(); alteraTexto1()">
+            </li>
+            <li><img src="/img/AndrewGarfield-removebg-preview.png" onclick="imgSlider('/img/AndrewGarfield-removebg-preview.png'); changeBgColor('/img/2.png'); changeBgColor2(); alteraTexto2()">
+            </li>
+            <li><img src="/img/Tom-removebg-preview.png" onclick="imgSlider('/img/Tom-removebg-preview.png'); changeBgColor('/img/3.png'); changeBgColor3(); alteraTexto3()">
+            </li>
+        </ul>
+
+        <ul class="sci">
+            <li>
+                <a href="#"><img src="/img/images/facebook.png"></a>
+            </li>
+            <li>
+                <a href="#"><img src="/img/images/twitter.png"></a>
+            </li>
+            <li>
+                <a href="#"><img src="/img/images/instagram.png"></a>
+            </li>
+        </ul>
+
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything) {
+            document.querySelector('.pepsi').src = anything;
+        }
+
+        function changeBgColor(anything) {
+            document.querySelector('.logo').src = anything;
+        }
+
+        function changeBgColor1(color) {
+            const sec = document.querySelector('.sec');
+            sec.style.backgroundImage = "url('https://i.ytimg.com/vi/Xi_34zShX2M/maxresdefault.jpg')";
+        }
+
+        function alteraTexto1() {
+            document.getElementById('textBox').innerHTML = "<h2><span>Tobey Maguire</span></h2><p>O jovem Peter Parker é orfão de pai e mãe,tendo sido criado pela querida Tia May e pelo Tio Ben.Na escola é um excelente aluno embora sofra chacotas por parte de valentões.Seu melhor amigo é Harry Osborn,filho do cientista magnata Norman Osborn.Sente-se atraido por sua vizinha e colega Mary Jane que namora o valentão Flash Tompson,um dos que costumam-no humilhar.</p><a href=>Ver Mais Detalhes</a>";
+        }
+
+        function changeBgColor2(color) {
+            const sec = document.querySelector('.sec');
+            sec.style.backgroundImage = "url('https://image.winudf.com/v2/image1/Y29tLkxhemlybXUubWFuaGF0dGFudGltZXNzcXVhcmVuZXd5b3JrLk1hbmhhdHRhblRpbWVzU3F1YXJlTmV3WW9ya1dhbGxwYXBlcl9zY3JlZW5fMV8xNTUxMzI1ODk1XzA4OQ/screen-1.jpg?fakeurl=1&type=.jpg')";
+        }
+
+        function alteraTexto2() {
+            document.getElementById('textBox').innerHTML = "<h2><span>Andrew Garfield</span></h2><p>Em 2000, o pequeno Peter Parker descobre que o estudo do pai, Richard Parker, foi roubado. Os pais de Peter recolhem documentos escondidos, levam Peter para o lar de sua tia May e seu tio Ben, e depois se afastam misteriosamente. Anos depois, o adolescente Peter estuda em Midtown Science High School, onde é intimidado por Flash Thompson. Peter se apaixona por Gwen Stacy. Em casa, Peter encontra os papéis de seu pai e descobre que seu pai trabalhou com o cientista Dr. Curtis Connors na Oscorp, no campo da genética de espécies cruzadas. Na Oscorp, Peter entra em um laboratório onde um cabo biológico está sendo desenvolvido a partir de aranhas geneticamente modificadas, uma das quais o morde. Mais tarde ele descobre que desenvolveu habilidades semelhantes as de uma aranha, como sentidos afiados, reflexos e velocidade.</a><a href=>Ver Mais Detalhes</a>";
+        }
+
+        function changeBgColor3(color) {
+            const sec = document.querySelector('.sec');
+            sec.style.backgroundImage = "url('https://www.fotosedestinos.com/wp-content/uploads/2010/01/Empire-State-Bldg-1280x720.jpg')";
+        }
+
+        function alteraTexto3() {
+            document.getElementById('textBox').innerHTML = "<h2><span>Tom Holland</span></h2><p>Peter Parker, órfão de pai e mãe, que vive com sua tia May Parker, no bairro nova-iorquino de Queens (EUA), visita um laboratório onde decorre uma experiência que revolucionará a sua vida, durante a qual uma aranha é atingida por uma potente radiação. Pouco depois, o aracnídeo pica Peter, transferindo-lhe os incríveis poderes de uma aranha, assim se tornando o Homem Aranha.</p><a href=>Ver Mais Detalhes</a>";
+        }
+
+        function toggleMenu() {
+            const toggleMenu = document.querySelector('.toggleMenu');
+            const navigation = document.querySelector('.navigation');
+            toggleMenu.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+    </script>
+</body>
+,
+
+</html>
