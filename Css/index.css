@@ -202,3 +202,14 @@ body {
         left: 50%;
     }
 }
+
+#start-btn {
+    font-size: 16px;
+    padding: 10px 20px 10px 40px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.dust {
+    position: absolute;
+}
