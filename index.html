@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Responsive Card Hover Effects</title>
+    <title>Convite</title>
     <link rel="stylesheet" href="./Css/index.css">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="html2canvas.min.js"></script>
@@ -14,156 +14,144 @@
 </head>
 
 <body>
-    <!DOCTYPE html>
-    <html lang="pt-br">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CSS Responsive Card Hover Effects</title>
-        <link rel="stylesheet" href="./Css/index.css">
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <script src="html2canvas.min.js"></script>
-        <script src="chance.min.js"></script>
-        <script src="jquery-2.1.4.js"></script>
-        <script src="jquery-ui-1.9.2.custom.min.js"></script>
-    </head>
+    <div class="card">
+        <div class="content">
+            <h2>Você Foi Convidado Para Uma Super Festa!</h2><br>
+            <h1>Issac</h1>
+            <h2>Faz Sete Anos</h2><br>
+            <p>Local: Shopping Estação - Planet Park</p>
+            <p><b>Data: Sábado - 26/02 - 18h</b></p>
 
-    <body>
-
-        <div class="card">
-            <div class="content">
-                <h2>Homem Aranha - Sem Volta Para Casa</h2>
-                <p>Saiba tudo o que vai acontecer com cada personagem do filme, a história e tudo mais.</p>
-                <a href="https://api.whatsapp.com/send?phone=5565992196426&text=Ol%C3%A1,%20Paulo.%20Irei%20sim%20ao%20anivers%C3%A1rio.">Confirmar</a>
-                <a href="https://api.whatsapp.com/send?phone=5565992196426&text=Ol%C3%A1,%20Paulo.%20Infelizmente%20n%C3%A3o%20vou%20conseguir%20ir%20ao%20anivers%C3%A1rio.">Não poderei ir</a>
+            <a href="https://api.whatsapp.com/send?phone=5565992514951&text=Ol%C3%A1,%20Fabio.%20Irei%20sim%20ao%20anivers%C3%A1rio.">Confirmar</a>
+            <a href="https://api.whatsapp.com/send?phone=5565992514951&text=Ol%C3%A1,%20Fabio.%20Infelizmente%20n%C3%A3o%20vou%20conseguir%20ir%20ao%20anivers%C3%A1rio.">Não poderei ir</a>
 
 
-            </div>
-            <img src="./img/Andrew.png" id="img">
         </div>
+        <img src="./img/Andrew.png" id="img">
+    </div>
 
-        <script>
-            var imageDataArray = [];
-            var canvasCount = 35;
-            $("#start-btn").click(function() {
+    <script>
+        var imageDataArray = [];
+        var canvasCount = 35;
+        $("#start-btn").click(function() {
 
-                html2canvas($(".card")[0]).then(canvas => {
-                    //capture all div data as image
-                    ctx = canvas.getContext("2d");
-                    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                    var pixelArr = imageData.data;
-                    createBlankImageData(imageData);
-                    //put pixel info to imageDataArray (Weighted Distributed)
-                    for (let i = 0; i < pixelArr.length; i += 4) {
-                        //find the highest probability canvas the pixel should be in
-                        let p = Math.floor((i / pixelArr.length) * canvasCount);
-                        let a = imageDataArray[weightedRandomDistrib(p)];
-                        a[i] = pixelArr[i];
-                        a[i + 1] = pixelArr[i + 1];
-                        a[i + 2] = pixelArr[i + 2];
-                        a[i + 3] = pixelArr[i + 3];
-                    }
-                    //create canvas for each imageData and append to target element
-                    for (let i = 0; i < canvasCount; i++) {
-                        let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
-                        c.classList.add("dust");
-                        $("body").append(c);
-                    }
-                    //clear all children except the canvas
-                    $("body").children().not(".dust").fadeOut(100);
-                    //apply animation
-                    $(".dust").each(function(index) {
-                        animateBlur($(this), 0.8, 800);
-                        setTimeout(() => {
-                            animateTransform($(this), 100, -100, chance.integer({
-                                min: -15,
-                                max: 15
-                            }), 800 + (110 * index));
-                        }, 70 * index);
-                        //remove the canvas from DOM tree when faded
-                        $(this).delay(70 * index).fadeOut((110 * index) + 800, "easeInQuint", () => {
-                            $(this).remove();
-                        });
+            html2canvas($(".card")[0]).then(canvas => {
+                //capture all div data as image
+                ctx = canvas.getContext("2d");
+                var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                var pixelArr = imageData.data;
+                createBlankImageData(imageData);
+                //put pixel info to imageDataArray (Weighted Distributed)
+                for (let i = 0; i < pixelArr.length; i += 4) {
+                    //find the highest probability canvas the pixel should be in
+                    let p = Math.floor((i / pixelArr.length) * canvasCount);
+                    let a = imageDataArray[weightedRandomDistrib(p)];
+                    a[i] = pixelArr[i];
+                    a[i + 1] = pixelArr[i + 1];
+                    a[i + 2] = pixelArr[i + 2];
+                    a[i + 3] = pixelArr[i + 3];
+                }
+                //create canvas for each imageData and append to target element
+                for (let i = 0; i < canvasCount; i++) {
+                    let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+                    c.classList.add("dust");
+                    $("body").append(c);
+                }
+                //clear all children except the canvas
+                $("body").children().not(".dust").fadeOut(100);
+                //apply animation
+                $(".dust").each(function(index) {
+                    animateBlur($(this), 0.8, 800);
+                    setTimeout(() => {
+                        animateTransform($(this), 100, -100, chance.integer({
+                            min: -15,
+                            max: 15
+                        }), 800 + (110 * index));
+                    }, 70 * index);
+                    //remove the canvas from DOM tree when faded
+                    $(this).delay(70 * index).fadeOut((110 * index) + 800, "easeInQuint", () => {
+                        $(this).remove();
                     });
                 });
             });
+        });
 
-            function weightedRandomDistrib(peak) {
-                var prob = [],
-                    seq = [];
-                for (let i = 0; i < canvasCount; i++) {
-                    prob.push(Math.pow(canvasCount - Math.abs(peak - i), 3));
-                    seq.push(i);
+        function weightedRandomDistrib(peak) {
+            var prob = [],
+                seq = [];
+            for (let i = 0; i < canvasCount; i++) {
+                prob.push(Math.pow(canvasCount - Math.abs(peak - i), 3));
+                seq.push(i);
+            }
+            return chance.weighted(seq, prob);
+        }
+
+        function animateBlur(elem, radius, duration) {
+            var r = 0;
+            $({
+                rad: 0
+            }).animate({
+                rad: radius
+            }, {
+                duration: duration,
+                easing: "easeOutQuad",
+                step: function(now) {
+                    elem.css({
+                        filter: 'blur(' + now + 'px)'
+                    });
                 }
-                return chance.weighted(seq, prob);
-            }
+            });
+        }
 
-            function animateBlur(elem, radius, duration) {
-                var r = 0;
-                $({
-                    rad: 0
-                }).animate({
-                    rad: radius
-                }, {
-                    duration: duration,
-                    easing: "easeOutQuad",
-                    step: function(now) {
-                        elem.css({
-                            filter: 'blur(' + now + 'px)'
-                        });
-                    }
-                });
-            }
-
-            function animateTransform(elem, sx, sy, angle, duration) {
-                var td = tx = ty = 0;
-                $({
-                    x: 0,
-                    y: 0,
-                    deg: 0
-                }).animate({
-                    x: sx,
-                    y: sy,
-                    deg: angle
-                }, {
-                    duration: duration,
-                    easing: "easeInQuad",
-                    step: function(now, fx) {
-                        if (fx.prop == "x")
-                            tx = now;
-                        else if (fx.prop == "y")
-                            ty = now;
-                        else if (fx.prop == "deg")
-                            td = now;
-                        elem.css({
-                            transform: 'rotate(' + td + 'deg)' + 'translate(' + tx + 'px,' + ty + 'px)'
-                        });
-                    }
-                });
-            }
-
-            function createBlankImageData(imageData) {
-                for (let i = 0; i < canvasCount; i++) {
-                    let arr = new Uint8ClampedArray(imageData.data);
-                    for (let j = 0; j < arr.length; j++) {
-                        arr[j] = 0;
-                    }
-                    imageDataArray.push(arr);
+        function animateTransform(elem, sx, sy, angle, duration) {
+            var td = tx = ty = 0;
+            $({
+                x: 0,
+                y: 0,
+                deg: 0
+            }).animate({
+                x: sx,
+                y: sy,
+                deg: angle
+            }, {
+                duration: duration,
+                easing: "easeInQuad",
+                step: function(now, fx) {
+                    if (fx.prop == "x")
+                        tx = now;
+                    else if (fx.prop == "y")
+                        ty = now;
+                    else if (fx.prop == "deg")
+                        td = now;
+                    elem.css({
+                        transform: 'rotate(' + td + 'deg)' + 'translate(' + tx + 'px,' + ty + 'px)'
+                    });
                 }
+            });
+        }
+
+        function createBlankImageData(imageData) {
+            for (let i = 0; i < canvasCount; i++) {
+                let arr = new Uint8ClampedArray(imageData.data);
+                for (let j = 0; j < arr.length; j++) {
+                    arr[j] = 0;
+                }
+                imageDataArray.push(arr);
             }
+        }
 
-            function newCanvasFromImageData(imageDataArray, w, h) {
-                var canvas = document.createElement('canvas');
-                canvas.width = w;
-                canvas.height = h;
-                tempCtx = canvas.getContext("2d");
-                tempCtx.putImageData(new ImageData(imageDataArray, w, h), 0, 0);
+        function newCanvasFromImageData(imageDataArray, w, h) {
+            var canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            tempCtx = canvas.getContext("2d");
+            tempCtx.putImageData(new ImageData(imageDataArray, w, h), 0, 0);
 
-                return canvas;
-            }
-        </script>
+            return canvas;
+        }
+    </script>
 
-    </body>
+</body>
 
-    </html>
+</html>
