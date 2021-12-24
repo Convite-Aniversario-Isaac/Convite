@@ -107,11 +107,15 @@ body {
 }
 
 @media (max-width: 420px) {
+    .card:hover {
+        height: 800px;
+    }
     .card .content {
         padding: 15px;
+        height: 800px;
     }
     .card:hover img {
-        height: 210px;
+        height: 346px;
         left: 50%;
     }
 }
